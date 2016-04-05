@@ -6,13 +6,14 @@ from draw import draw_func
 
 
 def main():
-    coordinates = get_czebyshev(lambda x: math.sin(x), 10, 0, 10)
+    coordinates = get_czebyshev(lambda x: math.cos(math.sin(x))*2 -1, 20, 0, 10)
     print(coordinates)
     x = newton(coordinates)
+    print("Finished interpolating with Newton's method.")
     y = lagrange(coordinates)
-
-    plots = [(i, y(i)) for i in range(100)]
-    draw_func(y, 100, 0, 100)
+    print("Finished interpolating with Lagrange's method.")
+    print("Drawing plot now...")
+    draw_func(100, 0, 10, False, x, y)
 
 
 if __name__ == '__main__':
