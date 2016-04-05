@@ -1,14 +1,19 @@
+import math
 from interpolate import newton, lagrange
 from functions import func
-from nodes import *
-def main():
+from nodes import get_czebyshev
+from draw import draw_func
 
-    coordinates = [(0,0), (1,1), (2,4), (3,9)]
+
+def main():
+    coordinates = get_czebyshev(lambda x: math.sin(x), 10, 0, 10)
+    print(coordinates)
     x = newton(coordinates)
     y = lagrange(coordinates)
-    for i in range(10):
-        print(x(i), y(i))
-    print(get_czebyshev(func, 4, 0, 1))
+
+    plots = [(i, y(i)) for i in range(100)]
+    draw_func(y, 100, 0, 100)
+
 
 if __name__ == '__main__':
     main()

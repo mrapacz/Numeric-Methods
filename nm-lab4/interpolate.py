@@ -1,5 +1,6 @@
 def newton(points):
     n = len(points)
+    print(points)
     xi, yi = zip(*points)
     c = [yi[0]]
 
@@ -18,7 +19,7 @@ def newton(points):
             cc /= (xi[k] - xi[j])
         c.append(cc)
     print(len(c))
-    
+
     def p(x):
         sum = 0
         for i in range(k):
