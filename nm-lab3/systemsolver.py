@@ -36,8 +36,3 @@ def solve(xs, criteria, rho, maxit):
         return -1, newxs
     else:
         return it, newxs
-
-def start(x):
-    return [x, x, x]
-
-solve(start(1), second_criteria, 0.01, 1000)

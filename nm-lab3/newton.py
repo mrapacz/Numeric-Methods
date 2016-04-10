@@ -1,6 +1,3 @@
-from functions import first_stop_criteria
-
-
 def newton_formula(f, df, x):
     return x - (f(x) / df(x))
 

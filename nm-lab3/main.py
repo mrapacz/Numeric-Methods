@@ -1,7 +1,6 @@
 from math import sqrt
 
 import numpy as np
-import scipy as sp
 
 from functions import func, derivative, first_stop_criteria, dfa, fa, second_stop_criteria
 from newton import newton
@@ -28,7 +27,7 @@ def task1():
 
 
 def task2():
-    f = open('system_second.txt', 'w')
+    f = open('system_first.txt', 'w')
     rho = 1e-4
     maxit = 10000
     count = 0
@@ -39,30 +38,32 @@ def task2():
         startvector = [i, i, i]
         ret = -1
         try:
-            ret = ss.solve(startvector, ss.second_criteria, rho, maxit)
+            ret = ss.solve(startvector, ss.first_criteria, rho, maxit)
         except:
             continue
         if ret[0] != -1:
             count += 1
             avg += ret[0]
-            print("result vector:", ret[1], "iteration count:", ret[0], "Start vector:", startvector)
-            #f.write(str(count) + "\n"+  "result vector: " + str(ret[1]) +  "\n iteration count: " + str(ret[0]) + "\n Start vector: " + str(startvector) + "\n")
+            # print("result vector:", ret[1], "iteration count:", ret[0], "Start vector:", startvector)
+            f.write(str(count) + "\n" + "result vector: " + str(ret[1]) + "\n iteration count: " + str(
+                ret[0]) + "\n Start vector: " + str(startvector) + "\n")
     print(count)
-    print(avg/10000)
+    print(avg / 10000)
     f.close()
 
 
-if __name__ == '__main__':
-    #task2()
+def task3():
     rho = 1
     maxit = 10000
-    startv = [-55.135513551355132,-55.135513551355132,-55.135513551355132]
+    startv = [-55.135513551355132, -55.135513551355132, -55.135513551355132]
     for i in range(17):
         print(i, ss.solve(startv, ss.second_criteria, rho, maxit)[0])
         rho /= 10
+        # l = [(i,ss.solve([i,i,i], ss.second_criteria, rho, maxit)) for i in np.linspace(-100, 100, 10000)]
+        # l.sort(key=(lambda x: x[1][0]))
+        # print(l)
+        # print(len(l), l[len(l)-1])
 
-    #l = [(i,ss.solve([i,i,i], ss.second_criteria, rho, maxit)) for i in np.linspace(-100, 100, 10000)]
-    #l.sort(key=(lambda x: x[1][0]))
-    #print(l)
-    #print(len(l), l[len(l)-1])
-    # -1.8 + 0.6
+
+if __name__ == '__main__':
+    task2()
