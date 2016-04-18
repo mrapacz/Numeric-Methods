@@ -1,4 +1,4 @@
-def classical_squares(a, b):
+def mean_squares(a, b):
     return sum((x - y) ** 2 for x, y in zip(a, b))
 
 

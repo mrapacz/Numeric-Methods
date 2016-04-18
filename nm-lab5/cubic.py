@@ -22,7 +22,6 @@ def natural(nodes):
         v.append((b[i] - b[i - 1]) - (h[i - 1] * v[i - 1] / u[i - 1]))
 
     z = [0 for i in range(n)]
-    print(z)
 
     for i in range(n - 2, 0, -1):
         z[i] = ((v[i] - h[i] * z[i + 1]) / u[i])

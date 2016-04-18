@@ -36,7 +36,7 @@ def not_a_knot(nodes):
     return np.linalg.solve(A, B)
 
 
-def create_quadratic_function(nodes, zmethod):
+def get_quadratic_f(nodes, zmethod):
     z = zmethod(nodes)
 
     xi, yi = zip(*nodes)
