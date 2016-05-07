@@ -15,7 +15,6 @@ def approximate(nodes, m):
     A = np.zeros(shape=(m + 1, m + 1))
     for i in range(0, m + 1):
         for j in range(0, m + 1):
-            print(i, j)
             A[i][j] = sk(xi, i + j)
 
     B = [tk(xi, yi, k) for k in range(m + 1)]
