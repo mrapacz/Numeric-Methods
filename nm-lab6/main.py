@@ -12,8 +12,9 @@ b = 10
 func = lambda x: np.sin(4 * x / np.pi) * np.exp(-x / (5 * np.pi))
 
 count = 1000
-n = 6  # number of nodes
-m = 5  # polynomial
+n = 10  # number of nodes
+m = 9  # polynomial
+
 error_point_count = 1000
 
 
@@ -31,12 +32,8 @@ def geterrors(method, count, n, m):
     origvalues = values(func, count, a, b)
     mean = mean_error(appvalues, origvalues)
     max = max_error(appvalues, origvalues)
-    print(m, mean, max)
+    return (m, mean, max)
 
 
 if __name__ == '__main__':
-    # arange = 2
-    # brange = 20
-    # for m in range(arange, brange):
-    #    geterrors(approximate, error_point_count, brange, m)
-    approx(8, 6, trigonometric_approximate)
+    approx(n, m, trigonometric_approximate)
